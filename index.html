@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ContextShift — AI Context Layer</title>
+  <meta name="description" content="Stop re-explaining yourself. ContextShift reads your screen, tracks your AI conversation, and generates a perfect handoff prompt when you switch models.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2250%22 fill=%22%235BB8FF%22/></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/base.css">
+</head>
+<body>
+
+  <!-- Scroll Progress Bar -->
+  <div style="position:fixed; top:0; left:0; height:2px; background:var(--accent); z-index:200; transition:width 0.1s;" id="scroll-progress"></div>
+
+  <!-- Animated Background -->
+  <div class="bg-scene">
+    <div class="mesh-gradient mesh-1"></div>
+    <div class="mesh-gradient mesh-2"></div>
+    <div class="mesh-gradient mesh-3"></div>
+    <div id="particles" class="particles-container"></div>
+  </div>
+  <div class="grid-overlay"></div>
+  <div class="cursor-glow" id="cursor-glow"></div>
+
+  <!-- Floating Nav Pill -->
+  <nav class="nav">
+    <div class="nav-brand">
+      <span class="dot"></span>
+      ContextShift
+    </div>
+    <div class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#stats">Stats</a>
+      <a href="/pricing.html">Pricing</a>
+      <button class="nav-cta magnetic" onclick="document.getElementById('email').focus()">Join Beta</button>
+    </div>
+  </nav>
+
+  <main>
+    <!-- ==================== HERO ==================== -->
+    <section class="hero">
+      <div class="badge reveal">Now in Closed Beta</div>
+      
+      <h1 class="reveal">
+        <span class="gradient-text">Never re‑explain yourself.</span>
+        <span class="dim">Switch <span id="typing-text" class="typing-cursor">Claude → ChatGPT</span></span>
+      </h1>
+      
+      <p class="hero-sub reveal">
+        ContextShift is a ghostly desktop overlay that reads your screen, tracks your goal, and generates a perfect handoff prompt for whichever AI you switch to.
+      </p>
+
+      <div class="waitlist-wrap reveal">
+        <form id="waitlist-form" class="waitlist-form">
+          <input type="email" id="email" placeholder="Enter your email for early access" required>
+          <button type="submit" class="magnetic">Join Waitlist</button>
+        </form>
+        <div id="waitlist-success" class="success-pill hidden">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          You're on the list!
+        </div>
+      </div>
+      <p class="hero-note reveal">Free during beta · No credit card · Mac & Windows</p>
+
+      <!-- Video Frame with 3D Parallax Tilt -->
+      <div class="video-section reveal">
+        <div class="video-frame">
+          <div class="video-bar">
+            <span class="vb-dot vb-r"></span>
+            <span class="vb-dot vb-y"></span>
+            <span class="vb-dot vb-g"></span>
+            <span class="vb-title">ContextShift_Demo.mp4</span>
+          </div>
+          <div class="video-body" id="video-body">
+            <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="rgba(91,184,255,0.5)" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polygon points="10 8 16 12 10 16" fill="rgba(91,184,255,0.15)"></polygon>
+            </svg>
+            <p>Demo video coming soon</p>
+          </div>
+          <!-- Uncomment when ready:
+          <video src="/assets/demo.mp4" autoplay loop muted playsinline class="real-video"></video>
+          -->
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- ==================== FEATURES ==================== -->
+    <section class="features container" id="features">
+      <div class="section-label reveal">
+        <h2>How it works</h2>
+        <p>Three invisible steps. Zero friction. Your context travels with you.</p>
+      </div>
+      <div class="features-grid">
+        <div class="f-card reveal">
+          <div class="f-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <h3>Reads your screen</h3>
+          <p>A silent overlay captures your active chat window. No extensions. No plugins. Just press one key.</p>
+        </div>
+        <div class="f-card reveal">
+          <div class="f-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10M18 20V4M6 20v-4"/></svg>
+          </div>
+          <h3>Builds live context</h3>
+          <p>AI vision extracts your goal, completed steps, current state, and next actions into a structured summary.</p>
+        </div>
+        <div class="f-card reveal">
+          <div class="f-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+          </div>
+          <h3>Generates the handoff</h3>
+          <p>One click produces an exhaustive continuation prompt. Paste it into any AI and resume exactly where you left off.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SOCIAL PROOF ==================== -->
+    <div class="social-proof">
+      <div class="marquee-track">
+        <div class="quote-card">"Finally I can jump from Claude Sonnet to ChatGPT-4o mid-project without spending 10 minutes rewriting context."</div>
+        <div class="quote-card">"The UI is beautiful. Ghostly, invisible until I need it. Exactly like Raycast."</div>
+        <div class="quote-card">"A godsend for prompt engineers who benchmark across multiple models."</div>
+        <div class="quote-card">"I use 4 different AIs daily. ContextShift saves me 30+ minutes of re-explaining."</div>
+        <div class="quote-card">"This is what I thought Cluely was going to be. But better and actually useful."</div>
+        <div class="quote-card">"Finally I can jump from Claude Sonnet to ChatGPT-4o mid-project without spending 10 minutes rewriting context."</div>
+        <div class="quote-card">"The UI is beautiful. Ghostly, invisible until I need it. Exactly like Raycast."</div>
+        <div class="quote-card">"A godsend for prompt engineers who benchmark across multiple models."</div>
+        <div class="quote-card">"I use 4 different AIs daily. ContextShift saves me 30+ minutes of re-explaining."</div>
+        <div class="quote-card">"This is what I thought Cluely was going to be. But better and actually useful."</div>
+      </div>
+    </div>
+
+    <!-- ==================== BOTTOM CTA ==================== -->
+    <section class="bottom-cta container">
+      <h2 class="reveal">Built for AI power users.</h2>
+      <div class="reveal">
+        <button class="btn-big magnetic" onclick="window.scrollTo({top:0,behavior:'smooth'}); setTimeout(()=>document.getElementById('email').focus(),500)">
+          Join the Beta
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">ContextShift © 2026</div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>
